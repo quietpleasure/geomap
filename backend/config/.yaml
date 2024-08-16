@@ -1,0 +1,48 @@
+app:
+  name: secret-service
+logger:
+  level: debug
+  time-format : 2006-01-02 15:04:05.000
+  # filepath    : logs/service.log
+  write-pretty: true
+  # with-caller : true
+  rotation:
+    max-size      : 1
+    max-backups   : 30
+    max-age       : 30
+    localtime     : true
+    # compress      : true
+    rotate-startup: true
+
+postgres:
+  host    : 127.0.0.1
+  port    : 5432
+  user    : postgres
+  pass    : postgres
+  database: mcexpress
+  add-params:
+    ssl-mode                : 
+    max-conns               :
+    max-conn-lifetime       :
+    max-conn-idle-time      :
+    max-conn-lifetime-jitter:
+    health-check-period     :
+
+router:
+  gin-mode     : release
+  # templates    : html/templates
+  # static-files : static
+  # favicon      : favicon.ico
+  # sessions:
+  #   name     : account-session
+  #   max-age  : 10800
+  #   http-only: true
+    # secure   : true
+
+server:
+  host            : 127.0.0.1
+  port            : 5000
+  max-header-bytes: 1048576
+  write-timeout   : 15s
+  read-timeout    : 15s
+  idle-timeout    : 60s
